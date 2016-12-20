@@ -1,8 +1,8 @@
 # Wave Lab
 Wave propagation simulation demo for educational purpose
 
-* main.c : C source code for parallel version of wave lab. A MPI implementation is necessary to compile and run.
-* main_serial.c : C source code for serial version of wave lab.
+* main.c : C source code for parallel version. A MPI implementation is necessary to compile and run.
+* main_serial.c : C source code for serial version.
 * plot.py : Python source code to show animation. It read "parameters.txt" and "output".
 
 # Numerical Method
