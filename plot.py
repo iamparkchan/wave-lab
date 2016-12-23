@@ -1,9 +1,8 @@
-import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-directory = '/Users/chan/Desktop/data/'
+directory = ''
 
 N, J, t = open(directory + 'parameters.txt', 'r').readline().split()
 N = int(N)

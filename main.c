@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
         fclose(fp);
     }
     
-	// Initialization of functions
-	for (i = 0; i <= I; i++) {
+    // Initialization of functions
+    for (i = 0; i <= I; i++) {
         if ((rank == 0        && i == 0) ||
             (rank == size - 1 && i == I)) {
             y[i] = v[i] = a[i] = 0.;
@@ -71,8 +71,7 @@ int main(int argc, char *argv[])
                 v[i] = 0.;
             }
         }
-	}
-
+    }
 
     // Evolution of functions
     MPI_File_open(MPI_COMM_WORLD, "output", MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &fh);
@@ -89,7 +88,7 @@ int main(int argc, char *argv[])
             dda[i] = TWO_DOT(a);
         }
 
-        MPI_File_write_at(fh, ((J + 1) * n + j0 + ((rank == 0) ? 0 : 1)) * sizeof(double), y + ((rank == 0) ? 0 : 1), I + ((rank == 0 || rank == size - 1) ? 0 : -1), MPI_DOUBLE, MPI_STATUS_IGNORE);
+        MPI_File_write_at(fh, ((J + 1) * n + j0 + ((rank == 0) ? 0 : 1)) * sizeof(double), y + ((rank == 0) ? 0 : 1), I - 1 + ((rank == 0) ? 1 : 0) + ((rank == size - 1) ? 1 : 0), MPI_DOUBLE, MPI_STATUS_IGNORE);
         
         if (n++ >= N) break;
 
